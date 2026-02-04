@@ -3,6 +3,7 @@ package com.keisar.Hotel.Management.service;
 import com.keisar.Hotel.Management.dto.response.HotelResponseDTO;
 import com.keisar.Hotel.Management.dto.request.HotelRequestDTO;
 import com.keisar.Hotel.Management.dto.request.HotelUpdateAddressDTO;
+import com.keisar.Hotel.Management.exception.ResourceNotFoundException;
 import com.keisar.Hotel.Management.model.Hotel;
 import com.keisar.Hotel.Management.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,14 +32,15 @@ public class HotelService {
     }
 
     public HotelResponseDTO updateHotel(Long id, HotelUpdateAddressDTO updateAddressDTO) {
-        Hotel hotel = hotelRepository.findById(id).orElseThrow(()-> new RuntimeException("Hotel not found"));
+        Hotel hotel = hotelRepository.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("Nenhum hotel encontrado, com o Id passado"));
         modelMapper.map(updateAddressDTO, hotel);
         return modelMapper.map(hotelRepository.save(hotel), HotelResponseDTO.class);
     }
 
     public void deleteHotel(Long id) {
         if (hotelRepository.existsById(id)) {
-            throw new RuntimeException("Hotel not found");
+            throw new ResourceNotFoundException("Nenhum hotel encontrado, com o Id passado");
         }
         hotelRepository.deleteById(id);
     }
