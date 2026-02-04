@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/hotelmanagement")
+@RequestMapping("/api/hotelmanagement")
 @RequiredArgsConstructor
 public class HotelController {
 
@@ -35,6 +35,7 @@ public class HotelController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteHotel(@PathVariable Long id){
+        hotelService.deleteHotel(id);
         return ResponseEntity.status(204).build();
     }
 

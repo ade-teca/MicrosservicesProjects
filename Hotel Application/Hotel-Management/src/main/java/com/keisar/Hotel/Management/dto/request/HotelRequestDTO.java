@@ -1,8 +1,9 @@
 package com.keisar.Hotel.Management.dto.request;
 
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
+
+@Data
 public class HotelRequestDTO {
     private String name;
     private String city;

@@ -9,6 +9,7 @@ import com.keisar.Hotel.Management.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,7 +40,7 @@ public class HotelService {
     }
 
     public void deleteHotel(Long id) {
-        if (hotelRepository.existsById(id)) {
+        if (!hotelRepository.existsById(id)) {
             throw new ResourceNotFoundException("Nenhum hotel encontrado, com o Id passado");
         }
         hotelRepository.deleteById(id);
