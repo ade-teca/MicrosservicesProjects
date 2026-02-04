@@ -32,6 +32,11 @@ public class HotelService {
                 .collect(Collectors.toList());
     }
 
+    public HotelResponseDTO getHotelById(Long id){
+        Hotel hotel = hotelRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Hotel not found"));
+        return modelMapper.map(hotel, HotelResponseDTO.class);
+    }
+
     public HotelResponseDTO updateHotel(Long id, HotelUpdateAddressDTO updateAddressDTO) {
         Hotel hotel = hotelRepository.findById(id)
                 .orElseThrow(()-> new ResourceNotFoundException("Nenhum hotel encontrado, com o Id passado"));

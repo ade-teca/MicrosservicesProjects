@@ -28,6 +28,11 @@ public class HotelController {
         return ResponseEntity.ok(hotelService.getAllHotels());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<HotelResponseDTO> getHotelById(@PathVariable Long id){
+        return ResponseEntity.ok(hotelService.getHotelById(id));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<HotelResponseDTO> updateHotel(@PathVariable Long id,@RequestBody HotelUpdateAddressDTO updateAddressDTO){
         return ResponseEntity.ok(hotelService.updateHotel(id, updateAddressDTO));
