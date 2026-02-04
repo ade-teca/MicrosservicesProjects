@@ -18,6 +18,7 @@ public class Hotel {
     private String name;
     private String city;
     private String address;
+    private Long postalCode;
     private double rating;
     private boolean available;
 
