@@ -1,8 +1,8 @@
 package com.keisar.Hotel.Management.service;
 
 import com.keisar.Hotel.Management.dto.response.HotelResponseDTO;
-import com.keisar.Hotel.Management.dto.response.request.HotelRequestDTO;
-import com.keisar.Hotel.Management.dto.response.request.HotelUpdateAddressDTO;
+import com.keisar.Hotel.Management.dto.request.HotelRequestDTO;
+import com.keisar.Hotel.Management.dto.request.HotelUpdateAddressDTO;
 import com.keisar.Hotel.Management.model.Hotel;
 import com.keisar.Hotel.Management.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;

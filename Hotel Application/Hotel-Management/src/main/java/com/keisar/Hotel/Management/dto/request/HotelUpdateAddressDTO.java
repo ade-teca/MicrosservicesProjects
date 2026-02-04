@@ -1,4 +1,4 @@
-package com.keisar.Hotel.Management.dto.response.request;
+package com.keisar.Hotel.Management.dto.request;
 
 import lombok.Setter;
 
